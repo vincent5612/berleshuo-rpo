@@ -11,15 +11,15 @@
 .msg.bot .msg-text { background: #ffffff; color: #1e293b; border-bottom-left-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
 .msg-text.thinking { color: #94a3b8; font-style: italic; }
 .input-bar {
-  display: flex; padding: 10px 12px; background: #ffffff; border-top: 1px solid #e2e8f0;
-  gap: 8px; align-items: center;
+  display: flex; padding: 12px 14px; background: #ffffff; border-top: 1px solid #e2e8f0;
+  gap: 10px; align-items: center;
 }
 .input {
-  flex: 1; height: 44px; padding: 0 14px; border: 1px solid #e2e8f0;
-  border-radius: 10px; font-size: 16px; background: #f8fafc;
+  flex: 1; height: 50px; padding: 0 16px; border: 1px solid #d0d5dd;
+  border-radius: 12px; font-size: 17px; background: #f8fafc;
 }
 .send-btn {
-  width: 64px; height: 44px; padding: 0; border-radius: 10px; border: none;
-  background: #d97706; color: #fff; font-size: 14px; font-weight: 600;
-  line-height: 44px; text-align: center; flex-shrink: 0;
+  width: 56px; height: 50px; padding: 0; border-radius: 12px; border: none;
+  background: #d97706; color: #fff; font-size: 13px; font-weight: 600;
+  line-height: 50px; text-align: center; flex-shrink: 0;
 }
