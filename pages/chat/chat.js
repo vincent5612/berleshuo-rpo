@@ -36,11 +36,14 @@ Page({
     const q = this.data.inputVal.trim();
     if (!q || this.data.loading) return;
 
-    // Build conversation history for API
-    const history = this.data.messages.map(m => ({
-      role: m.role === 'user' ? 'user' : 'assistant',
-      content: m.content
-    }));
+    // Build conversation history for API (skip welcome message)
+    const history = [];
+    for (let i = 1; i < this.data.messages.length; i++) {
+      history.push({
+        role: this.data.messages[i].role === 'user' ? 'user' : 'assistant',
+        content: this.data.messages[i].content
+      });
+    }
 
     const msgs = [...this.data.messages, { role: 'user', content: q }];
     this.setData({ messages: msgs, inputVal: '', loading: true });
