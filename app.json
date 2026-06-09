@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/sop/sop",
+    "pages/chat/chat"
+  ],
+  "window": {
+    "navigationBarTitleText": "伯乐说RPO",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

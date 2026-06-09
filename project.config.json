@@ -1,0 +1,31 @@
+{
+  "description": "伯乐说RPO SOP",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "bundle": false,
+    "userConfirmedBundle": false,
+    "minified": true,
+    "urlCheck": true,
+    "scopeDataCheck": false,
+    "coverView": true,
+    "es6": true,
+    "postcss": true,
+    "compileHotReLoad": false,
+    "lazyloadPlaceholderEnable": false,
+    "preloadBackgroundData": false,
+    "minifiedWXSS": true,
+    "useLibCompile": false,
+    "ignoreUploadUnusedFiles": true,
+    "minifyWXML": true
+  },
+  "condition": {},
+  "editorSetting": {
+    "tabIndent": "auto",
+    "tabSize": 2
+  },
+  "libVersion": "3.7.0",
+  "appid": "wx1e82f16113bc02d3",
+  "projectname": "伯乐说RPO"
+}

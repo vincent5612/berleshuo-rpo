@@ -1,0 +1,38 @@
+<view class="home">
+  <!-- Hero -->
+  <view class="hero">
+    <text class="hero-title">伯乐说</text>
+    <text class="hero-sub">RPO招聘系统</text>
+    <text class="hero-desc">让招聘有章可循</text>
+  </view>
+
+  <!-- Features -->
+  <view class="features">
+    <view class="feature" bindtap="goSOP">
+      <text class="f-icon">📋</text>
+      <text class="f-title">SOP手册</text>
+      <text class="f-desc">五步流程·六要素·四步回答法</text>
+    </view>
+    <view class="feature" bindtap="goChat">
+      <text class="f-icon">🤖</text>
+      <text class="f-title">AI助手</text>
+      <text class="f-desc">招聘问题智能问答</text>
+    </view>
+    <view class="feature" bindtap="goSOP">
+      <text class="f-icon">🧠</text>
+      <text class="f-title">系统大脑</text>
+      <text class="f-desc">闭环结构·持续进化</text>
+    </view>
+  </view>
+
+  <!-- Quick tips -->
+  <view class="tips">
+    <text class="tips-title">💡 试试这样问AI：</text>
+    <text class="tip-item">• 微信沟通要聊多久？</text>
+    <text class="tip-item">• 候选人说底薪太低怎么回？</text>
+    <text class="tip-item">• 到面率低怎么办？</text>
+  </view>
+
+  <!-- Version -->
+  <text class="version">基于14年RPO经验沉淀 V3.0</text>
+</view>
