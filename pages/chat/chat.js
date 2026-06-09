@@ -1,4 +1,4 @@
-const API_KEY='***';
+const API_KEY='sk-nIA39UY7wM69Cyds4b7641D45a5d4d34B7Ff907085421475';
 const API_URL = 'https://api.v36.cm/v1/messages';
 
 const SYSTEM_PROMPT = `你是一个招聘RPO业务专家，回答简洁直接。
