@@ -103,7 +103,18 @@ Page({
         } catch(e) {
           reply = '请求失败，请重试。';
         }
-        reply = reply.replace(/^#+\s*/gm, '').replace(/\*\*/g, '').replace(/^-\s*/gm, '• ').replace(/\n{3,}/g, '\n\n').trim();
+        reply = reply
+          .replace(/^#+\s*/gm, '')        // # 标题
+          .replace(/^[\d]+\.\s*/gm, '')   // 1. 数字列表
+          .replace(/^\-\s*/gm, '')        // - 无序列表
+          .replace(/^\*\s*/gm, '')        // * 无序列表
+          .replace(/\*\*/g, '')           // **粗体**
+          .replace(/~~/g, '')             // ~~删除线~~
+          .replace(/`[^`]*`/g, '')        // `行内代码`
+          .replace(/——/g, '—')            // 中文破折号缩为单
+          .replace(/\.—/g, '—')           // .— 合并
+          .replace(/\n{3,}/g, '\n\n')     // 多余空行
+          .trim();
         const newMsgs = [...this.data.messages, { role: 'bot', content: reply }];
         this.setData({
           messages: newMsgs,
