@@ -1,10 +1,10 @@
-const API_KEY = 'sk-nIA39UY7wM69Cyds4b7641D45a5d4d34B7Ff907085421475';
+const API_KEY='***';
 const API_URL = 'https://api.v36.cm/v1/messages';
 
 const SYSTEM_PROMPT = `你是一个招聘RPO业务专家，回答简洁直接。
 
 ## 核心框架：系统大脑
-招聘RPO核心能力链条：招聘管理、技能培训、数据管理、项目对接、AI工具赋能。同一套知识框架，同一底层逻辑，无论什么岗位行业，系统内核不变。
+招聘RPO核心能力链条：招聘管理、技能培训、数据管理、项目对接、AI工具赋能。同一套知识框架，无论什么岗位行业，系统内核不变。
 
 ## 五步标准流程
 1. 人才寻访 —— 多渠道主动寻访，建立人才库
@@ -17,8 +17,33 @@ const SYSTEM_PROMPT = `你是一个招聘RPO业务专家，回答简洁直接。
 1. 约面前意向沟通七步法：以岗位最大优势打招呼→了解对方情况→以工作经验为话题→工作内容简单化→深化沟通→锁定面试时间
 2. 约面后信任沟通：约面成功后15~30分钟发邀约信息，要求回复确认（签字盖章效应）
 3. 面试后关系梳理：面试当天发消息了解感受，预判意向
-4. Offer沟通：正式Offer发出后立即电话沟通，确认入职时间
-5. 入职前维护：Offer到入职日之间每隔2~3天互动，防流失
+4. Offer沟通：正式Offer发出后立即确认入职时间
+5. 入职前维护：Offer到入职日之间每隔2~3天互动
+
+## 四步回答法
+1. 正面回答 —— 直接回应，不绕弯子
+2. 解释问题 —— 拆解背后的真实顾虑
+3. 抛优势 —— 立刻补一个岗位亮点
+4. 引导提问 —— 用反问拿回主动权
+原则：不是在回答问题，是在借问题推进对话。
+
+## FAB法则
+F(特点) → A(优势) → B(利益)，结构化表达岗位优势
+
+## 候选人分类沟通法
+- 一类(低收入/小白)：薪资对比法，"跨度40%+提升"
+- 二类(技术下行)：行业前景对比法，"换行稳定"
+- 三类(纠结型)：引导面试法，"具体到校区谈"
+
+## 异议处理三原则
+先共情，不反驳，给选择。
+候选人说"底薪太低"→不要回"行业都这样"→回"确实底薪不高，但新人综合4500~5500，转正后平均8000~13000"
+
+## 数据复盘核心指标
+每日约面：合格3人/天，优秀5人/天
+每日加微：合格30~50人，优秀50~70人
+Boss沟通量：合格≥150/天，优秀200~300/天
+
 核心公式：数据→反推→改进→闭环。`;
 
 Page({
@@ -27,16 +52,19 @@ Page({
       { role: 'bot', content: '你好，我是伯乐说AI助手。有什么招聘问题尽管问，我基于14年RPO经验帮你解答。' }
     ],
     inputVal: '',
-    loading: false
+    loading: false,
+    scrollToId: '',
+    autoFocus: true
   },
 
-  onInput(e) { this.setData({ inputVal: e.detail.value }); },
+  onInput(e) {
+    this.setData({ inputVal: e.detail.value });
+  },
 
   sendMsg() {
     const q = this.data.inputVal.trim();
     if (!q || this.data.loading) return;
 
-    // Build conversation history for API (skip welcome message)
     const history = [];
     for (let i = 1; i < this.data.messages.length; i++) {
       history.push({
@@ -46,7 +74,12 @@ Page({
     }
 
     const msgs = [...this.data.messages, { role: 'user', content: q }];
-    this.setData({ messages: msgs, inputVal: '', loading: true });
+    this.setData({
+      messages: msgs,
+      inputVal: '',
+      loading: true,
+      scrollToId: 'msg_' + msgs.length
+    });
 
     wx.request({
       url: API_URL,
@@ -71,9 +104,11 @@ Page({
           reply = '请求失败，请重试。';
         }
         reply = reply.replace(/^#+\s*/gm, '').replace(/\*\*/g, '').replace(/^-\s*/gm, '• ').replace(/\n{3,}/g, '\n\n').trim();
+        const newMsgs = [...this.data.messages, { role: 'bot', content: reply }];
         this.setData({
-          messages: [...this.data.messages, { role: 'bot', content: reply }],
-          loading: false
+          messages: newMsgs,
+          loading: false,
+          scrollToId: 'msg_' + newMsgs.length
         });
       },
       fail: () => {
@@ -81,6 +116,17 @@ Page({
           messages: [...this.data.messages, { role: 'bot', content: '❌ 网络请求失败，请检查API配置。' }],
           loading: false
         });
+      }
+    });
+  },
+
+  copyMsg(e) {
+    const idx = e.currentTarget.dataset.index;
+    const content = this.data.messages[idx].content;
+    wx.setClipboardData({
+      data: content,
+      success: () => {
+        wx.showToast({ title: '已复制', icon: 'success', duration: 1000 });
       }
     });
   }

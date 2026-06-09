@@ -1,14 +1,14 @@
 <view class="chat-page">
-  <scroll-view class="msg-list" scroll-y scroll-with-animation="true" id="scrollView">
-    <view wx:for="{{messages}}" wx:key="index" class="msg {{item.role}}">
-      <view class="msg-text">{{item.content}}</view>
+  <scroll-view class="msg-list" scroll-y scroll-with-animation="{{true}}" scroll-into-view="{{scrollToId}}">
+    <view wx:for="{{messages}}" wx:key="index" class="msg {{item.role}}" id="msg_{{index}}">
+      <view class="msg-text" bindlongpress="copyMsg" data-index="{{index}}">{{item.content}}</view>
     </view>
     <view wx:if="{{loading}}" class="msg bot">
       <view class="msg-text thinking">🤔 思考中...</view>
     </view>
   </scroll-view>
   <view class="input-bar">
-    <input class="input" placeholder="输入你的招聘问题..." bindinput="onInput" value="{{inputVal}}" />
+    <input class="input" placeholder="输入你的招聘问题..." bindinput="onInput" value="{{inputVal}}" focus="{{autoFocus}}" />
     <button class="send-btn" bindtap="sendMsg">发送</button>
   </view>
 </view>
