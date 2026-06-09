@@ -2,9 +2,6 @@ Page({
   goSOP() {
     wx.navigateTo({ url: '/pages/sop/sop' });
   },
-  goBrain() {
-    wx.navigateTo({ url: '/pages/brain/brain' });
-  },
   goChat() {
     wx.navigateTo({ url: '/pages/chat/chat' });
   }

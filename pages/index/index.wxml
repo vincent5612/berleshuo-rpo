@@ -8,24 +8,18 @@
   <view class="features">
     <view class="feature" bindtap="goSOP">
       <text class="f-icon">📋</text>
-      <view class="f-info">
-        <text class="f-title">SOP手册</text>
-        <text class="f-desc">五步流程·六要素·四步回答法</text>
-      </view>
+      <text class="f-title">SOP手册</text>
+      <text class="f-desc">五步流程 · 六要素 · 四步回答法</text>
     </view>
-    <view class="feature" bindtap="goSOP">
+    <view class="feature" bindtap="goBrain">
       <text class="f-icon">🧠</text>
-      <view class="f-info">
-        <text class="f-title">系统大脑</text>
-        <text class="f-desc">闭环结构·持续进化</text>
-      </view>
+      <text class="f-title">系统大脑</text>
+      <text class="f-desc">闭环结构 · 持续进化</text>
     </view>
     <view class="feature" bindtap="goChat">
       <text class="f-icon">🤖</text>
-      <view class="f-info">
-        <text class="f-title">AI助手</text>
-        <text class="f-desc">招聘问题智能问答</text>
-      </view>
+      <text class="f-title">AI助手</text>
+      <text class="f-desc">招聘问题智能问答</text>
     </view>
   </view>
 

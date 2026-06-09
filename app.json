@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/sop/sop",
+    "pages/brain/brain",
     "pages/chat/chat"
   ],
   "window": {

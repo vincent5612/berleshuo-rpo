@@ -1,0 +1,57 @@
+<view class="brain-page">
+  <view class="header">
+    <text class="h-title">🧠 系统大脑</text>
+    <text class="h-sub">招聘RPO核心框架</text>
+  </view>
+
+  <view class="section" bindtap="goSOP">
+    <text class="s-num">01</text>
+    <view class="s-body">
+      <text class="s-title">五步标准流程</text>
+      <text class="s-desc">人才寻访 → 初步沟通 → 面试跟进 → Offer谈判 → 入职维护</text>
+      <text class="s-tag">点击查看详情</text>
+    </view>
+  </view>
+
+  <view class="section">
+    <text class="s-num">02</text>
+    <view class="s-body">
+      <text class="s-title">微信沟通六要素</text>
+      <text class="s-desc">约面前意向沟通 → 约面后信任沟通 → 面试后关系梳理 → Offer沟通 → 入职前维护 → 在职跟进</text>
+    </view>
+  </view>
+
+  <view class="section">
+    <text class="s-num">03</text>
+    <view class="s-body">
+      <text class="s-title">四步回答法</text>
+      <text class="s-desc">正面回答 → 解释问题 → 抛优势 → 引导提问</text>
+    </view>
+  </view>
+
+  <view class="section">
+    <text class="s-num">04</text>
+    <view class="s-body">
+      <text class="s-title">候选人分类沟通法</text>
+      <text class="s-desc">一类：薪资对比法 · 二类：行业前景对比法 · 三类：引导面试法</text>
+    </view>
+  </view>
+
+  <view class="section">
+    <text class="s-num">05</text>
+    <view class="s-body">
+      <text class="s-title">异议处理</text>
+      <text class="s-desc">先共情 · 不反驳 · 给选择</text>
+    </view>
+  </view>
+
+  <view class="formula-box">
+    <text class="formula-label">核心公式</text>
+    <text class="formula-text">数据 → 反推 → 改进 → 闭环</text>
+  </view>
+
+  <view class="footer-bar">
+    <text class="footer-btn" bindtap="goSOP">查看完整SOP手册 ›</text>
+    <text class="footer-btn" bindtap="goChat">去问AI助手 ›</text>
+  </view>
+</view>
