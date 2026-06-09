@@ -8,7 +8,6 @@
     </view>
   </scroll-view>
   <view class="input-bar">
-    <input class="input" placeholder="输入你的招聘问题..." bindinput="onInput" value="{{inputVal}}" focus="{{autoFocus}}" />
-    <button class="send-btn" bindtap="sendMsg">发送</button>
+    <input class="input" placeholder="输入消息..." bindinput="onInput" value="{{inputVal}}" focus="{{autoFocus}}" confirm-type="send" bindconfirm="sendMsg" />
   </view>
 </view>
